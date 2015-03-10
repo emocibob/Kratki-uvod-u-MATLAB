@@ -11,8 +11,9 @@
 \usepackage{color}
 \usepackage{comment} % blokovi komentara
 \usepackage{hyperref}
-%\usepackage[nottoc, notbib]{tocbibind} % dodaj popis slika i tablica toc
+%\usepackage[nottoc, notbib]{tocbibind} % dodaj popis slika i tablica u toc
 \usepackage{lmodern} % sadrži bold stil za tt
+\usepackage{afterpage}
 %\usepackage{float} % [H] za figure
 \usepackage{indentfirst} % indent u prvom paragrafu sekcije
 %\setlength{\parindent}{0in} % bez indenta u novom paragrafu
@@ -55,6 +56,12 @@
     {Ž}{{\v{Z}}}1
 }
 
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage}
+
 \begin{comment}
 \title{Kratki uvod u MATLAB}
 \author{Edvin Močibob}
@@ -95,6 +102,8 @@
 \end{center}
 \end{titlepage}
 
+\newpage\null\thispagestyle{empty}\addtocounter{page}{-1}\newpage % prazna stranica
+
 \tableofcontents
 \clearpage
 
@@ -124,10 +133,10 @@ save('vjezba1_data')
 Generiranje vektora koji sadrži $4$ vrijednosti koje idu od $1$ do $10$ (granice uključne). Sve susjedne vrijednosti su međusobno jednako udaljene.
 
 \begin{lstlisting}
-linspace(1, 10, 4)
+linspace(1, 10, 4) % rezultat sadrži 1, 4, 7 i 10
 \end{lstlisting}
 
-Isti rezultat (tj. vektor koji sadrži 1, 4, 7 i 10) dobijemo sljedećom naredom. Ovdje ne odredimo eksplicitno broj elementa nego inkrement za svaki sljedeći element (ovdje $3$).
+Isti rezultat dobijemo sljedećom naredom. Ovdje ne odredimo eksplicitno broj elementa nego inkrement za svaki sljedeći element (u ovom slučaju $3$).
 
 \begin{lstlisting}
 [1:3:10]
@@ -173,10 +182,10 @@ Transponiranje $A$.
 A'
 \end{lstlisting}
 
-Zbroj elemenata $A$ po stupcima (izlaz je dakle matrica sa jednim retkom i četiri stupaca).
+Zbroj elemenata $A$ po stupcima.
 
 \begin{lstlisting}
-sum(A)
+sum(A) % izlaz 1x4 matrica
 \end{lstlisting}
 
 Zbroj svih elemenata.
@@ -197,7 +206,7 @@ Najmanji elementi iz pojedinih redaka.
 min(A, [], 2)
 \end{lstlisting}
 
-Matrica koja sadrži koji elementi $A$ su veći od $30$. Iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi $1$, na ostalim $0$.
+Matrica koja sadrži koji elementi $A$ su veći od $30$. Izlaz ima iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi $1$, na ostalim $0$.
 
 \begin{lstlisting}
 A > 30
@@ -222,10 +231,10 @@ Matrica $B$ koja sadrži elemente $A$ povećane za $10$.
 B = A + 10
 \end{lstlisting}
 
-Pojedinim elementima matrice $A$ možemo pristupiti sa $A(i, j)$ gdje je $i$ pripadni redak a $j$ stupac elementa. Numeriranje za retke i stupce počinje od $1$. U primjeru pristupamo elementu u drugom retku i prvom stupcu.
+Pojedinim elementima matrice $A$ možemo pristupiti sa $A(i, j)$ gdje je $i$ pripadni redak a $j$ stupac elementa. Numeriranje za retke i stupce počinje od $1$.
 
 \begin{lstlisting}
-A(2, 1)
+A(2, 1) % element u drugom retku i prvom stupcu
 \end{lstlisting}
 
 Vrati prvo drugi redak iz $A$, a zatim treći i četvrti stupac.
@@ -496,7 +505,7 @@ odg = input('Unesite ime: ', 's')
 
 \section{Grafovi}
 
-Ovako bi jednostavno nacrtali funkciju sinus na intervalu od $-5$ do $5$. Ako imamo samo jedan graf \texttt{figure} nije obavezan. Rezultat bi trebao izgledati kao slika \ref{fig:plot_sin_1} u sekciji \ref{sec:prilozi}.
+Ovako bi jednostavno nacrtali funkciju sinus na intervalu od $-5$ do $5$. Ako imamo samo jedan graf \texttt{figure} nije obavezan. Rezultat bi trebao izgledati kao slika \ref{fig:plot_sin_1} u prilozima na stranici \pageref{sec:prilozi}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -577,8 +586,11 @@ bar(podaci)
 set(gca, 'xticklabel', stupci)
 \end{lstlisting}
 
-\section{Prilozi}
+\clearpage
+
+\section*{Prilozi}
 \label{sec:prilozi}
+\addcontentsline{toc}{section}{Prilozi}
 
 \begin{figure}[!htb]
 \centering
