@@ -118,12 +118,6 @@ Jednolinijski komentari počinju sa \texttt{\%}.
 x = 5 % varijabla x poprima vrijednost 5
 \end{lstlisting}
 
-Spremanje radne površine (\textit{workspace}) pomoću \texttt{save}.
-
-\begin{lstlisting}
-save('vjezba1_data')
-\end{lstlisting}
-
 Generiranje vektora koji sadrži $4$ vrijednosti koje idu od $1$ do $10$ (granice uključne). Sve susjedne vrijednosti su međusobno jednako udaljene.
 
 \begin{lstlisting}
@@ -152,9 +146,35 @@ n = 1 - 1/12 + 1/123 - 1/1234 + 1/12345 - 1/123456 ...
        + 1/1234567 - 1/12345678 + 1/123456789
 \end{lstlisting}
 
-Izlaz naredbe neće se prikazati ako naredba završi sa \texttt{;}.
+Naredba \texttt{lookfor} služi za pretraživanje funkcija iz komandne linije. Pretraživanje može potrajati pošto MATLAB ima jako puno funkcija.
 
-Trenutni radni prostor može se obrisati narednom \texttt{clear}, dok \texttt{clc} služi za brisanje sadržaja komandne linije.
+\begin{lstlisting}
+lookfor label
+\end{lstlisting}
+
+Pristup dokumentaciji za određenu funkciju iz komandne linije može se ostvariti sa \texttt{help}.
+
+\begin{lstlisting}
+help help
+\end{lstlisting}
+
+Trenutni radni prostor može se obrisati narednom \texttt{clear} (bez argumenata), dok \texttt{clc} služi za brisanje sadržaja komandne linije. Pojedinačne varijable iz radnog prostora brišemo tako ih navodimo nakon \texttt{clear}.
+
+\begin{lstlisting}
+clear a b
+\end{lstlisting}
+
+Spremanje radne površine (\textit{workspace}) pomoću \texttt{save}.
+
+\begin{lstlisting}
+save('vjezba1_data')
+\end{lstlisting}
+
+Relacijski operatori su slični kao u drugim jezicima (\texttt{==} je jednako, \texttt{>} veće, \texttt{>=} veće ili jednako), jedino možda operator za različito odudara. Njegova je sintaksa \texttt{\textasciitilde=}.
+
+Za logičke operatore koriste se \texttt{\&} (logičko i), \texttt{|} (logičko ili) i \texttt{\textasciitilde} (komplement).
+
+Izlaz naredbi neće se prikazati ako završe sa \texttt{;}.
 
 \section{Matrice}
 
@@ -313,7 +333,18 @@ C2{5, 6} = []
 
 Naredba \texttt{cell2mat} može se koristiti za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu. Uvjet je da svi elementi koji se pretvaraju budu istog tipa.
 
-\section{Petlje}
+\section{Grananje i petlje}
+
+Slijedi primjer sa sintaksom za \texttt{if} grananje.
+
+\begin{lstlisting}
+n = 9;
+if mod(n, 2) == 0
+    disp('Broj paran.')
+else
+    disp('Broj neparan.')
+end
+\end{lstlisting}
 
 Ispiši \texttt{for} petljom brojeve od $1$ do $10$ (granice uključne).
 
