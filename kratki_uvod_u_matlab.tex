@@ -228,7 +228,7 @@ max(max(A))
 Najmanji elementi iz pojedinih redaka.
 
 \begin{lstlisting}
-min(A, [], 2)
+min(A, [], 2) % min traži po dimenziji broj 2
 \end{lstlisting}
 
 Matrica koja sadrži koji elementi $A$ su veći od $30$. Izlaz ima iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi $1$, na ostalim $0$.
@@ -300,6 +300,12 @@ Množenje matrica $C$ i $D$ po elementima.
 
 \begin{lstlisting}
 C .* D
+\end{lstlisting}
+
+Primjer pretvaranja matrice u vektor.
+
+\begin{lstlisting}
+A(:)
 \end{lstlisting}
 
 \section{Polja ćelija}
