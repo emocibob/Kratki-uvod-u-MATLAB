@@ -174,7 +174,7 @@ Trenutni radni prostor može se obrisati narednom \texttt{clear} (bez argumenata
 clear a b
 \end{lstlisting}
 
-Spremanje radne površine (\textit{workspace}) pomoću \texttt{save}.
+Spremanje radne površine (\emph{workspace}) pomoću \texttt{save}.
 
 \begin{lstlisting}
 save('vjezba1_data')
@@ -310,7 +310,7 @@ A(:)
 
 \section{Polja ćelija}
 
-Matrice ne mogu sadržavati istovremeno različite tipove podataka (npr.\ brojeve i tekst). Kada imamo potrebu za nečim takvim možemo koristiti polja ćelija (cell arrays).
+Matrice ne mogu sadržavati istovremeno različite tipove podataka (npr.\ brojeve i tekst). Kada imamo potrebu za nečim takvim možemo koristiti polja ćelija (\emph{cell arrays}).
 
 Inicijaliziacija se može vršiti pomoću vitičastih zagrada. Što se dimenzija tiče, svi reci moraju imati isti broj elemenata. U primjeru vidimo da polja ćelija mogu sadržavati druga polja ćelija.
 
@@ -422,7 +422,7 @@ Napravi matricu $A$ dimenzija $5 \times 5$ koja sadrži cijele slučajne brojeve
 A = randi([-100, 100], 5, 5)
 \end{lstlisting}
 
-Ako želimo da funkcije koje koriste slučajne vrijednosti uvijek daju isti rezultat potrebno je postaviti konstantan \textit{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti. To činimo pomoću \texttt{rng}.
+Ako želimo da funkcije koje koriste slučajne vrijednosti uvijek daju isti rezultat potrebno je postaviti konstantan \emph{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti. To činimo pomoću \texttt{rng}.
 
 \begin{lstlisting}
 rng(999)
@@ -602,7 +602,7 @@ ylabel('Vrijednost funkcije')
 legend('sin(x)', 'cos(x)')
 \end{lstlisting}
 
-MATLAB podržava više vrsta grafova. U sljedećem primjeru prikazan je još stupčasti graf koji vizualizira neke \textit{random} podatke. Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \texttt{plot}. Izlaz slika \ref{fig:bar_1}.
+MATLAB podržava više vrsta grafova. U sljedećem primjeru prikazan je još stupčasti graf koji vizualizira neke \emph{random} podatke. Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \texttt{plot}. Izlaz slika \ref{fig:bar_1}.
 
 \begin{lstlisting}
 rng(999) % postavljenje seed-a za random brojeve
