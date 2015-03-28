@@ -37,8 +37,8 @@
    showstringspaces = false,
    showspaces = false,
    breaklines = true,
-   inputencoding = utf8, % potrebno za hr slova (listings)
-   extendedchars = true, % potrebno za hr slova (listings)
+   inputencoding = utf8, % hr slova
+   extendedchars = true, % hr slova
    morekeywords = {ones, mod, randi, rng, saveas}
 }
 
@@ -109,7 +109,10 @@
 \section*{Uvod}
 \addcontentsline{toc}{section}{Uvod}
 
-Slijedi kratki uvod u sintaksu MATLAB-a prezentiran (većinom) kroz primjere. Navedeni primjeri testirani su u MATLAB verziji R2014a na Windows 7 operacijskom sustavu. MATLAB ima kvalitetnu dokumentaciju sa primjerima te preporučeno je njezino korištenje uz ovaj dokument. Pretpostavlja se da čitatelj ima već neko bazično znanje iz programiranja.
+Slijedi kratki uvod u sintaksu MATLAB-a prezentiran (većinom) kroz primjere.
+Navedeni primjeri testirani su u MATLAB verziji R2014a na Windows 7 operacijskom sustavu.
+MATLAB ima kvalitetnu dokumentaciju sa primjerima te preporučeno je njezino korištenje uz ovaj dokument.
+\emph{Kratki uvod u MATLAB} pretpostavlja da čitatelj ima već neko bazično znanje iz programiranja.
 
 Kontaktiranje autora u vezi grešaka u tekstu i unaprjeđenja sadržaja preko email adrese na naslovnoj stranici.
 
@@ -153,7 +156,8 @@ v(2:2:50) % neparni elementi
 v([9 9 9]) % tri puta vrati 9. element
 \end{lstlisting}
 
-U sljedećem kodu potencira se broj i vektor. Primijetimo operator točke (\texttt{.}).
+U sljedećem kodu potencira se broj i vektor.
+Primijetimo operator točke (\texttt{.}).
 Ako je on ispred nekog drugog operatora, drugi operator će izvršiti izračun element po element (tzv.\ \emph{pointwise} operacija\footnote{Tako nam je na primjer bitno da li koristimo \texttt{.*} ili samo \texttt{*} kod množenja matrica.
 Primjeri u sekciji \nameref{sec:matrice}.}).
 
@@ -175,7 +179,7 @@ Duže naredbe je zbog preglednosti moguće napisati u više linija sa tri točke
 
 \begin{lstlisting}
 n = 1 - 1/12 + 1/123 - 1/1234 + 1/12345 - 1/123456 ...
-       + 1/1234567 - 1/12345678 + 1/123456789
+    + 1/1234567 - 1/12345678 + 1/123456789
 \end{lstlisting}
 
 Naredba \texttt{lookfor} služi za pretraživanje funkcija iz komandne linije.
@@ -204,8 +208,17 @@ Spremanje radne površine (\emph{workspace}) pomoću \texttt{save}.
 save('vjezba1_data')
 \end{lstlisting}
 
-Relacijski operatori su slični kao u drugim jezicima (\texttt{==} je jednako, \texttt{<} manje, \texttt{>} veće, \texttt{<=} manje ili jednako, \texttt{>=} veće ili jednako), jedino možda operator za različito odudara.
+Relacijski operatori u MATLAB-u su slični kao u drugim jezicima (\texttt{==} je jednako, \texttt{<} manje, \texttt{>} veće, \texttt{<=} manje ili jednako, \texttt{>=} veće ili jednako), jedino možda operator za različito odudara.
 Njegova je sintaksa \texttt{\textasciitilde=}.
+
+Dolje je naveden primjer\footnote{Argument za obje funkcije, tj.\ rezultat \texttt{v > 1}, je vektor sa \emph{true}/\emph{false} ($1$/$0$) vrijednostima za pojedine elemente \texttt{v}.}
+za MATLAB funkcije \texttt{any} (da li je ikoji element različit od $0$) i \texttt{all} (da li su svi elementi različiti od $0$).
+
+\begin{lstlisting}
+v = [1.5 0.9 0.7 0.12 0.1 0.05];
+any(v > 1) % ikoji element veći od 1? true
+all(v > 1) % svi elementi veći od 1? false
+\end{lstlisting}
 
 Za logičke operatore koriste se \texttt{\&} (logičko i), \texttt{|} (logičko ili) i \texttt{\textasciitilde} (komplement).
 
@@ -258,7 +271,8 @@ Najmanji elementi iz pojedinih redaka.
 min(A, [], 2) % min traži po drugoj dimenziji
 \end{lstlisting}
 
-Matrica tipa \emph{boolean} (tj.\ \emph{logical} u MATLAB-u) koja sadrži koji elementi $A$ su veći od $30$. Izlaz ima iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi $1$, na ostalim $0$.
+Matrica tipa \emph{boolean} (tj.\ \emph{logical} u MATLAB-u) koja sadrži koji elementi $A$ su veći od $30$.
+Izlaz ima iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi $1$, na ostalim $0$.
 
 \begin{lstlisting}
 A > 30
@@ -284,7 +298,9 @@ Matrica $B$ koja sadrži elemente $A$ povećane za $10$.
 B = A + 10
 \end{lstlisting}
 
-Pojedinim elementima $A$ možemo pristupiti sa \texttt{A(i, j)} gdje je \texttt{i} redak a \texttt{j} stupac elementa. Za raspone koristimo \texttt{:}. Prisjetimo se, numeriranje počinje od $1$.
+Pojedinim elementima $A$ možemo pristupiti sa \texttt{A(i, j)} gdje je \texttt{i} redak a \texttt{j} stupac elementa.
+Za raspone koristimo \texttt{:}.
+Prisjetimo se, numeriranje počinje od $1$.
 
 \begin{lstlisting}
 A(2, 1) % element u drugom retku i prvom stupcu
@@ -298,13 +314,15 @@ Uvećaj treći stupac 10 puta.
 A(:, 3) = A(:, 3) * 10;
 \end{lstlisting}
 
-Dodaj novi redak na $A$ (trenutne dimenzije $3 \times 4$). Moguće koristiti i \texttt{vertcat}.
+Dodaj novi redak na $A$ (trenutne dimenzije $3 \times 4$).
+Moguće koristiti i \texttt{vertcat}.
 
 \begin{lstlisting}
 [A; -1 -2 -3 -4]
 \end{lstlisting}
 
-Dodaj novi stupac na $A$ (trenutne dimenzije $3 \times 4$). Moguće koristiti i \texttt{horzcat}.
+Dodaj novi stupac na $A$ (trenutne dimenzije $3 \times 4$).
+Moguće koristiti i \texttt{horzcat}.
 
 \begin{lstlisting}
 [A [5; 55; 555]]
@@ -342,15 +360,19 @@ A(:)
 
 \section{Polja ćelija}
 
-Matrice ne mogu sadržavati istovremeno različite tipove podataka (npr.\ brojeve i tekst). Kada imamo potrebu za nečim takvim možemo koristiti polja ćelija (\emph{cell arrays}).
+Matrice ne mogu sadržavati istovremeno različite tipove podataka (npr.\ brojeve i tekst).
+Kada imamo potrebu za nečim takvim možemo koristiti polja ćelija (\emph{cell arrays}).
 
-Inicijaliziacija se može vršiti pomoću vitičastih zagrada. Što se dimenzija tiče, svi reci moraju imati isti broj elemenata. U primjeru vidimo da polja ćelija mogu sadržavati druga polja ćelija.
+Inicijaliziacija se može vršiti pomoću vitičastih zagrada.
+Što se dimenzija tiče, svi reci moraju imati isti broj elemenata.
+U primjeru vidimo da polja ćelija mogu sadržavati druga polja ćelija.
 
 \begin{lstlisting}
 C = {'Tekst', 2, {'XYZ', 111}; 4, 5, 10}
 \end{lstlisting}
 
-Referenciranje ćelija moguće je pomoću uglatih zagrada (gdje se pristupa ćelijama) ili pomoći vitičastih zagrada (gdje se pristupa sadržaju ćelija). U primjeru pristupamo drugom retku polja $C$. 
+Referenciranje ćelija moguće je pomoću uglatih zagrada (gdje se pristupa ćelijama) ili pomoći vitičastih zagrada (gdje se pristupa sadržaju ćelija).
+U primjeru pristupamo drugom retku polja $C$.
 
 \begin{lstlisting}
 a = C(2, :)
@@ -363,7 +385,8 @@ Prazna ćelija dimenzija $0 \times 0$ može se inicijalizirati na sljedeći nač
 C2 = {}
 \end{lstlisting}
 
-Slijedi primjer u kojem se dodaje element u postojeće polje ćelija. Dimenzije polja će se automatski povećati ako se referencira ćelija izvan postojećih dimenzija.
+Slijedi primjer u kojem se dodaje element u postojeće polje ćelija.
+Dimenzije polja će se automatski povećati ako se referencira ćelija izvan postojećih dimenzija.
 
 \begin{lstlisting}
 C2{4, 4} = 9
@@ -375,7 +398,8 @@ Samo povećanje dimenzija bez dodavanja ikakve nove vrijednosti vrši se na slje
 C2{5, 6} = []
 \end{lstlisting}
 
-Naredba \texttt{cell2mat} može se koristiti za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu. Uvjet je da svi elementi koji se pretvaraju budu istog tipa.
+Naredba \texttt{cell2mat} može se koristiti za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu.
+Uvjet je da svi elementi koji se pretvaraju budu istog tipa.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,7 +436,7 @@ while i <= 10
 end
 \end{lstlisting}
 
-Ispiši \texttt{for} petljom svaki drugi broj od $1$ do $10$ (tj. ispiši $1$, $3$, $5$, $7$ i $9$).
+Ispiši \texttt{for} petljom svaki drugi broj od $1$ do $10$ (tj.\ ispiši $1$, $3$, $5$, $7$ i $9$).
 
 \begin{lstlisting}
 for i = 1:2:10
@@ -454,7 +478,7 @@ Generiraj broj između $0$ i $1$.
 rand
 \end{lstlisting}
 
-Generiraj $2 \times 2$ slučajnu matricu sa vrijednostima između $0$ i $1$. 
+Generiraj $2 \times 2$ slučajnu matricu sa vrijednostima između $0$ i $1$.
 
 \begin{lstlisting}
 rand(2, 2)
@@ -472,7 +496,8 @@ Napravi matricu $A$ dimenzija $5 \times 5$ koja sadrži cijele slučajne brojeve
 A = randi([-100, 100], 5, 5)
 \end{lstlisting}
 
-Ako želimo da funkcije koje koriste slučajne vrijednosti uvijek daju isti rezultat potrebno je postaviti konstantan \emph{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti. To činimo pomoću \texttt{rng}.
+Ako želimo da funkcije koje koriste slučajne vrijednosti uvijek daju isti rezultat potrebno je postaviti konstantan \emph{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti.
+To činimo pomoću \texttt{rng}.
 
 \begin{lstlisting}
 rng(999)
@@ -520,7 +545,8 @@ Konkatenacija stringova.
 tekst = [s, ' i na primjer broj ', num2str(125), '.']
 \end{lstlisting}
 
-Stringove možemo ispisivati sa \texttt{disp}. Istu funkciju možemo koristiti i na brojevima.
+Stringove možemo ispisivati sa \texttt{disp}.
+Istu funkciju možemo koristiti i na brojevima.
 
 \begin{lstlisting}
 disp(tekst)
@@ -552,7 +578,8 @@ end
 end
 \end{lstlisting}
 
-Primjer kada funkcija vraća vrijednost. Konkretno, vrijednost koja se vraća je \texttt{b}.
+Primjer kada funkcija vraća vrijednost.
+Konkretno, vrijednost koja se vraća je \texttt{b}.
 
 \begin{lstlisting}
 function b = kvadriraj(a)
@@ -583,7 +610,8 @@ Korisnički definirane funkcije se spremaju u datoteke sa nastavkom \texttt{.m}.
 
 \section{Korisnički unos}
 
-Korisnika se može tražiti unos na sljedeći način. U primjeru unos se sprema u \texttt{x}.
+Korisnika se može tražiti unos na sljedeći način.
+U primjeru unos se sprema u \texttt{x}.
 
 \begin{lstlisting}
 x = input('Unesite broj: ')
@@ -608,7 +636,9 @@ odg = input('Unesite ime: ', 's')
 
 \section{Grafovi}
 
-Ovako bi jednostavno nacrtali funkciju sinus na intervalu od $-5$ do $5$. Ako imamo samo jedan graf \texttt{figure} nije obavezan. Rezultat bi trebao izgledati kao slika \ref{fig:plot_sin_1} u sekciji \nameref{sec:prilozi}.
+Ovako bi jednostavno nacrtali funkciju sinus na intervalu od $-5$ do $5$.
+Ako imamo samo jedan graf \texttt{figure} nije obavezan.
+Rezultat bi trebao izgledati kao slika \ref{fig:plot_sin_1} u sekciji \nameref{sec:prilozi}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -616,7 +646,8 @@ figure % otvara novi prozor za graf
 plot(x, sin(x))
 \end{lstlisting}
 
-Sljedeći kod pokazuje kako učiniti da se prozor sa grafom ne otvori. Dodatno, graf se još spremi kao slika pod imenom \texttt{sinus\_graf.png}.
+Sljedeći kod pokazuje kako učiniti da se prozor sa grafom ne otvori.
+Dodatno, graf se još spremi kao slika pod imenom \texttt{sinus\_graf.png}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -625,7 +656,10 @@ plot(x, sin(x))
 saveas(fig, 'sinus_graf', 'png')
 \end{lstlisting}
 
-Na jednom grafu možemo imati više funkcija odjednom. To radimo tako da jednostavno navodimo argumente svake funkcije jedan za drugim. U donjem primjeru korišteni su i argumenti za stiliziranje linija (\texttt{g} i \texttt{b} su boje, a \texttt{-{}-} i \texttt{:} vrste linija). Rezultat slika \ref{fig:plot_sin_cos_1}.
+Na jednom grafu možemo imati više funkcija odjednom.
+To radimo tako da jednostavno navodimo argumente svake funkcije jedan za drugim.
+U donjem primjeru korišteni su i argumenti za stiliziranje linija (\texttt{g} i \texttt{b} su boje, a \texttt{-{}-} i \texttt{:} vrste linija).
+Rezultat slika \ref{fig:plot_sin_cos_1}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -643,7 +677,8 @@ hold on
 plot(x, cos(x), 'b:')
 \end{lstlisting}
 
-Slijedi primjer sa (detaljnijim) stiliziranjem linije i točaka grafa. Slika \ref{fig:plot_stil}.
+Slijedi primjer sa (detaljnijim) stiliziranjem linije i točaka grafa.
+Slika \ref{fig:plot_stil}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 21);
@@ -656,7 +691,8 @@ plot(x, y, '--go', ... % stil linije i oblik točke
     'MarkerFaceColor', 'w') % unutrašnja boje točke
 \end{lstlisting}
 
-Naslov grafa, oznake osi i legendu možemo dodati sljedećim kodom. Rezultat slika \ref{fig:plot_sin_cos_oznaceno}.
+Naslov grafa, oznake osi i legendu možemo dodati sljedećim kodom.
+Rezultat slika \ref{fig:plot_sin_cos_oznaceno}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -668,7 +704,10 @@ ylabel('Vrijednost funkcije')
 legend('sin(x)', 'cos(x)')
 \end{lstlisting}
 
-MATLAB podržava više vrsta grafova. U sljedećem primjeru prikazan je još stupčasti graf koji vizualizira neke \emph{random} podatke. Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \texttt{plot}. Izlaz slika \ref{fig:bar_1}.
+MATLAB podržava više vrsta grafova.
+U sljedećem primjeru prikazan je još stupčasti graf koji vizualizira neke \emph{random} podatke.
+Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \texttt{plot}.
+Izlaz slika \ref{fig:bar_1}.
 
 \begin{lstlisting}
 rng(999) % postavljenje seed-a za random brojeve
@@ -678,7 +717,8 @@ figure
 bar(x, podaci)
 \end{lstlisting}
 
-U sljedećem primjeru prikazano je kako se može proizvoljno imenovati svaki stupac. Rezultat slika \ref{fig:bar_imenovan}.
+U sljedećem primjeru prikazano je kako se može proizvoljno imenovati svaki stupac.
+Rezultat slika \ref{fig:bar_imenovan}.
 
 \begin{lstlisting}
 rng(999)
