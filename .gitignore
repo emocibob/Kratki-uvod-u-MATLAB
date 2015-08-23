@@ -2,7 +2,8 @@
 *.log
 *.lol
 *.out
-*.pdf
+#*.pdf
+slike/*.pdf
 *.synctex.gz
 *.toc
 *.lof

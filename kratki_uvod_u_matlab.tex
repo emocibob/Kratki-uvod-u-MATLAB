@@ -739,6 +739,29 @@ bar(podaci)
 set(gca, 'xticklabel', stupci)
 \end{lstlisting}
 
+Sljedeći blok koda daje primjer kako postaviti više (pod)grafova u jedan \emph{figure}.
+Korištena je naredba \texttt{subplot} koja dijeli \emph{figure} na koordinatni sustav\footnote{\texttt{subplot(m, n, p)} dijeli \emph{figure} u $m \times n$ koordinatni sustav u kojem smještamo graf na poziciju (ili više njih) \texttt{p}.} u kojemu smještamo grafove.
+Rezultat vidimo na slici \ref{fig:subplot}.
+
+\begin{lstlisting}
+% podaci
+x = [0:0.1:10];
+a = cos(7*x);
+b = cos(3.5*x);
+c = cos(x);
+% grafovi
+figure
+subplot(2, 2, 1)
+plot(x, a)
+title('Graf br. 1')
+subplot(2, 2, 2)
+plot(x, b)
+title('Graf br. 2')
+subplot(2, 2, [3, 4])
+plot(x, c)
+title('Graf br. 3')
+\end{lstlisting}
+
 \clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -789,6 +812,13 @@ set(gca, 'xticklabel', stupci)
 \includegraphics[width=0.95\linewidth]{slike/bar_imenovan.eps}
 \caption{Primjer stupčastog grafa sa proizvoljnim imenima stupaca.}
 \label{fig:bar_imenovan}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.95\linewidth]{slike/subplot.eps}
+\caption{Primjer više grafova na jednom \emph{figure}.}
+\label{fig:subplot}
 \end{figure}
 
 %\clearpage
