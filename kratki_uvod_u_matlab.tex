@@ -64,6 +64,8 @@
 \date{\today}
 \end{comment}
 
+\newcommand{\spec}[1]{\texttt{#1}}
+
 \begin{document}
 
 %\maketitle
@@ -131,8 +133,8 @@ Kontaktiranje autora u vezi grešaka u tekstu i unaprjeđenja sadržaja preko em
 
 \section{Osnove}
 
-Jednolinijski komentari počinju sa \texttt{\%}.
-Izlaz naredbe neće se prikazati ako naredba završi sa \texttt{;}.
+Jednolinijski komentari počinju sa \spec{\%}.
+Izlaz naredbe neće se prikazati ako naredba završi sa \spec{;}.
 
 \begin{lstlisting}
 x = 5; % inicijaliziraj varijablu x na 5
@@ -153,7 +155,7 @@ linspace(1, 10, 4) % rezultat sadrži 1, 4, 7 i 10
 \end{lstlisting}
 
 Isti rezultat dobijemo sljedećom naredom.
-Ovdje ne odredimo eksplicitno broj elementa nego inkrement\footnote{Ako je inkrement $1$ možemo izostaviti drugi argument, tj.\ pišemo \texttt{[a:b]} za sve cijele brojeve od \texttt{a} do \texttt{b}.} za svaki sljedeći element -- u ovom slučaju $3$.
+Ovdje ne odredimo eksplicitno broj elementa nego inkrement\footnote{Ako je inkrement $1$ možemo izostaviti drugi argument, tj.\ pišemo \spec{[a:b]} za sve cijele brojeve od \spec{a} do \spec{b}.} za svaki sljedeći element -- u ovom slučaju $3$.
 
 \begin{lstlisting}
 [1:3:10]
@@ -171,8 +173,8 @@ v([9 9 9]) % tri puta vrati 9. element
 \end{lstlisting}
 
 U sljedećem kodu potencira se broj i vektor.
-Primijetimo \texttt{.} tj.\ operator točke.
-Ako je on ispred nekog drugog operatora, drugi operator će izvršiti izračun element po element (tzv.\ \emph{pointwise} operacija\footnote{Tako nam je, na primjer, bitno koristimo li \texttt{.*} ili samo \texttt{*} kod množenja matrica.
+Primijetimo \spec{.} tj.\ operator točke.
+Ako je on ispred nekog drugog operatora, drugi operator će izvršiti izračun element po element (tzv.\ \emph{pointwise} operacija\footnote{Tako nam je, na primjer, bitno koristimo li \spec{.*} ili samo \spec{*} kod množenja matrica.
 Primjeri u sekciji \nameref{sec:matrice}.}).
 
 \begin{lstlisting}
@@ -196,41 +198,41 @@ n = 1 - 1/12 + 1/123 - 1/1234 + 1/12345 - 1/123456 ...
     + 1/1234567 - 1/12345678 + 1/123456789
 \end{lstlisting}
 
-Naredba \texttt{lookfor} služi za pretraživanje funkcija iz komandne linije.
+Naredba \spec{lookfor} služi za pretraživanje funkcija iz komandne linije.
 Pretraživanje može potrajati pošto MATLAB ima bogatu biblioteku funkcija.
 
 \begin{lstlisting}
 lookfor label
 \end{lstlisting}
 
-Pristup dokumentaciji za određenu funkciju može se ostvariti iz komandne linije sa \texttt{help}.
+Pristup dokumentaciji za određenu funkciju može se ostvariti iz komandne linije sa \spec{help}.
 
 \begin{lstlisting}
 help help
 \end{lstlisting}
 
-Cijeli radni prostor može se obrisati narednom \texttt{clear} (bez argumenata), dok \texttt{clc} služi za brisanje sadržaja komandne linije.
-Pojedinačne varijable iz radnog prostora brišemo tako ih navodimo nakon \texttt{clear}.
+Cijeli radni prostor može se obrisati narednom \spec{clear} (bez argumenata), dok \spec{clc} služi za brisanje sadržaja komandne linije.
+Pojedinačne varijable iz radnog prostora brišemo tako ih navodimo nakon \spec{clear}.
 
 \begin{lstlisting}
 clear a b
 \end{lstlisting}
-Slijedi primjer spremanja radne površine (\emph{workspace}) koristeći \texttt{save}. Radna površina biti će spremljena u datoteci pod imenom \texttt{vjezba1\_data.mat}.
+Slijedi primjer spremanja radne površine (\emph{workspace}) koristeći \spec{save}. Radna površina biti će spremljena u datoteci pod imenom \spec{vjezba1\_data.mat}.
 
 \begin{lstlisting}
 save('vjezba1_data')
 \end{lstlisting}
 
-Relacijski operatori u MATLAB-u su sljedeći: \texttt{==} je jednako, \texttt{<} manje, \texttt{>} veće, \texttt{<=} manje ili jednako, \texttt{>=} veće ili jednako, \texttt{\textasciitilde=} različito od.
+Relacijski operatori u MATLAB-u su sljedeći: \spec{==} je jednako, \spec{<} manje, \spec{>} veće, \spec{<=} manje ili jednako, \spec{>=} veće ili jednako, \spec{\textasciitilde=} različito od.
 
-Modulo operator\footnote{Dobivanje ostatka cjelobrojnog dijeljenja.} implementiran je funkcijom \texttt{mod}.
+Modulo operator\footnote{Ostatak cjelobrojnog dijeljenja.} implementiran je funkcijom \spec{mod}.
 
 \begin{lstlisting}
 ostatak = mod(29, 3) % daje 2
 \end{lstlisting}
 
-Dolje je naveden primjer\footnote{Argument za obje funkcije, tj.\ rezultat \texttt{v > 1}, je vektor sa \emph{true}/\emph{false} ($1$/$0$) vrijednostima za pojedine elemente \texttt{v}.}
-za MATLAB funkcije \texttt{any} (da li je ikoji element različit od $0$) i \texttt{all} (da li su svi elementi različiti od $0$).
+Dolje je naveden primjer\footnote{Argument za obje funkcije, tj.\ rezultat \spec{v > 1}, je vektor sa \emph{true}/\emph{false} ($1$/$0$) vrijednostima za pojedine elemente \spec{v}.}
+za MATLAB funkcije \spec{any} (da li je ikoji element različit od $0$) i \spec{all} (da li su svi elementi različiti od $0$).
 
 \begin{lstlisting}
 v = [1.5 0.9 0.7 0.12 0.1 0.05];
@@ -238,7 +240,7 @@ any(v > 1) % ikoji element veći od 1? true
 all(v > 1) % svi elementi veći od 1? false
 \end{lstlisting}
 
-Za logičke operatore koriste se \texttt{\&} (logičko i), \texttt{|} (logičko ili) i \texttt{\textasciitilde} (komplement).
+Za logičke operatore koriste se \spec{\&} (logičko i), \spec{|} (logičko ili) i \spec{\textasciitilde} (komplement).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -253,7 +255,7 @@ Generiranje $2 \times 3$ matrice koja sadrži samo jedinice.
 ones(2, 3)
 \end{lstlisting}
 
-Inicijalizacija matrice $A$ dimenzija $3 \times 4$.
+Inicijalizacija matrice \spec{A} dimenzija $3 \times 4$.
 
 \begin{lstlisting}
 A = [1 2 3 4; 10 20 30 40; 100 200 300 400]
@@ -261,12 +263,12 @@ A = [1 2 3 4; 10 20 30 40; 100 200 300 400]
 
 \pagebreak % manualno počni novu stranicu
 
-Transponiranje $A$.
+Transponiranje \spec{A}.
 \begin{lstlisting}
 A'
 \end{lstlisting}
 
-Zbroj elemenata $A$ po stupcima.
+Zbroj elemenata \spec{A} po stupcima.
 
 \begin{lstlisting}
 sum(A) % izlaz 1x4 matrica
@@ -278,7 +280,7 @@ Zbroj svih elemenata.
 sum(sum(A))
 \end{lstlisting}
 
-Najveći element iz $A$.
+Najveći element iz \spec{A}.
 
 \begin{lstlisting}
 max(max(A))
@@ -290,36 +292,36 @@ Najmanji elementi iz pojedinih redaka.
 min(A, [], 2) % min traži po 2. dimenziji - recima
 \end{lstlisting}
 
-Matrica tipa \emph{boolean} (tj.\ \emph{logical} u MATLAB-u) koja prikazuje koji elementi $A$ su veći od $30$.
-Izlaz ima iste dimenzije kao $A$; na mjesta elemenata većih od $30$ nalazi se $1$, na ostalim $0$.
+Matrica tipa \emph{logical} koja prikazuje koji su elementi \spec{A} veći od $30$.
+Izlaz ima iste dimenzije kao \spec{A}, na mjesta elemenata većih od $30$ nalazi se $1$ (\emph{true}) a na ostalim $0$ (\emph{false}).
 
 \begin{lstlisting}
 A > 30
 \end{lstlisting}
 
-Broj elemenata $A$ većih od $30$.
+Broj elemenata \spec{A} većih od $30$.
 
 \begin{lstlisting}
 sum(sum(A > 30))
 \end{lstlisting}
 
-Vrati matricu $P$ (tipa \emph{logical}) koja sadrži na kojim mjestima u $A$ se nalaze parni brojevi.
-Nakon toga ispiši te parne brojeve iz $A$.
+Vrati matricu \spec{P} (tipa \emph{logical}) koja sadrži na kojim mjestima u \spec{A} se nalaze parni brojevi.
+Nakon toga ispiši te parne brojeve iz {A}.
 
 \begin{lstlisting}
 P = mod(A, 2) == 0;
 A(P)
 \end{lstlisting}
 
-Matrica $B$ koja sadrži elemente $A$ povećane za $10$.
+Matrica \spec{B} koja sadrži elemente \spec{A} povećane za $10$.
 
 \begin{lstlisting}
 B = A + 10
 \end{lstlisting}
 
-Pojedinim elementima $A$ možemo pristupiti sa \texttt{A(i, j)} gdje je \texttt{i} redak a \texttt{j} stupac elementa.
-Za raspone koristimo \texttt{:}.
-Prisjetimo se, numeriranje počinje od $1$.
+Pojedinim elementima \spec{A} možemo pristupiti sa \spec{A(i, j)} gdje je \spec{i} redak a \spec{j} stupac elementa.
+Za raspone koristimo \spec{:}.
+Prisjetimo se, indeksiranje počinje od $1$.
 
 \begin{lstlisting}
 A(2, 1) % element u drugom retku i prvom stupcu
@@ -333,27 +335,27 @@ Uvećaj treći stupac 10 puta.
 A(:, 3) = A(:, 3) * 10;
 \end{lstlisting}
 
-Nova matrica kojoj je osim elementa $A$ (dimenzije $3 \times 4$) dodan još jedan redak.
-Moguće koristiti i \texttt{vertcat}\footnote{\texttt{vertcat(A, [-1 -2 -3 -4])}}.
+Nova matrica kojoj je osim elementa \spec{A} (dimenzije $3 \times 4$) dodan još jedan redak.
+Moguće koristiti i \spec{vertcat}\footnote{\spec{vertcat(A, [-1 -2 -3 -4])}}.
 
 \begin{lstlisting}
 [A; -1 -2 -3 -4]
 \end{lstlisting}
 
-Nova matrica kojoj je osim elementa $A$ (dimenzije $3 \times 4$) dodan još jedan stupac.
-Moguće koristiti i \texttt{horzcat}\footnote{\texttt{horzcat(A, [5; 55; 555])}}.
+Nova matrica kojoj je osim elementa \spec{A} (dimenzije $3 \times 4$) dodan još jedan stupac.
+Moguće koristiti i \spec{horzcat}\footnote{\spec{horzcat(A, [5; 55; 555])}}.
 
 \begin{lstlisting}
 [A [5; 55; 555]]
 \end{lstlisting}
 
-Jedinična matrica\footnote{Sadrži jedinice na dijagonali.} $B$ istih dimenzija kao $A$.
+Jedinična matrica\footnote{Sadrži jedinice na dijagonali.} \spec{B} istih dimenzija kao \spec{A}.
 
 \begin{lstlisting}
 B = eye(size(A))
 \end{lstlisting}
 
-Inicijaliziraj i zatim matrično pomnoži matrice $C$ i $D$.
+Inicijaliziraj i zatim matrično pomnoži matrice \spec{C} i \spec{D}.
 
 \begin{lstlisting}
 C = [1 2; 3 4];
@@ -361,7 +363,7 @@ D = [10 20; 30 40];
 C * D
 \end{lstlisting}
 
-Množenje matrica $C$ i $D$ po elementima.
+Množenje matrica \spec{C} i \spec{D} po elementima.
 
 \begin{lstlisting}
 C .* D
@@ -392,7 +394,7 @@ C = {'Tekst', 2, {'XYZ', 111}; 4, 5, 10}
 
 Referenciranje ćelija moguće je pomoću običnih zagrada (gdje se pristupa ćelijama) ili pomoću vitičastih zagrada (gdje se pristupa sadržaju ćelija).
 
-U primjeru prvo pristupamo drugom retku polja $C$ i zatim pristupamo vrijednostima tog retka.
+U primjeru prvo pristupamo drugom retku polja \spec{C} i zatim pristupamo vrijednostima istog retka.
 
 \begin{lstlisting}
 C(2, :)
@@ -418,10 +420,10 @@ Samo povećanje dimenzija bez dodavanja ikakve nove vrijednosti vrši se na slje
 C2{5, 6} = []
 \end{lstlisting}
 
-Naredba \texttt{cell2mat} se koristi za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu.
+Naredba \spec{cell2mat} se koristi za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu.
 Uvjet je da svi elementi koji se pretvaraju budu istog tipa.
 
-Sljedeća naredba pretvara drugi redak polja ćelija $C$ u vektor\footnote{Isti efekt bi postigla naredba \texttt{[C\{2, :\}]}.}.
+Sljedeća naredba pretvara drugi redak polja ćelija \spec{C} u vektor\footnote{Isti efekt bi postigla naredba \spec{[C\{2, :\}]}.}.
 
 \begin{lstlisting}
 cell2mat(C(2, :))
@@ -433,7 +435,7 @@ cell2mat(C(2, :))
 
 \section{Grananja i petlje}
 
-Slijedi primjer sa sintaksom za \texttt{if} grananje.
+Slijedi primjer sa sintaksom za \spec{if} grananje.
 
 \begin{lstlisting}
 n = 9;
@@ -444,7 +446,7 @@ else
 end
 \end{lstlisting}
 
-Ispiši \texttt{for} petljom brojeve od $1$ do $10$ (granice uključne).
+Ispiši \spec{for} petljom brojeve od $1$ do $10$ (granice uključne).
 
 \begin{lstlisting}
 for i = 1:10
@@ -452,7 +454,7 @@ for i = 1:10
 end
 \end{lstlisting}
 
-Ista stvar u \texttt{while} petlji.
+Ista stvar u \spec{while} petlji.
 
 \begin{lstlisting}
 i = 1;
@@ -462,7 +464,7 @@ while i <= 10
 end
 \end{lstlisting}
 
-Ispiši \texttt{for} petljom svaki drugi broj od $1$ do $10$ (tj.\ ispiši $1$, $3$, $5$, $7$ i $9$).
+Ispiši \spec{for} petljom svaki drugi broj od $1$ do $10$ (tj.\ ispiši $1$, $3$, $5$, $7$ i $9$).
 
 \begin{lstlisting}
 for i = 1:2:10
@@ -470,7 +472,7 @@ for i = 1:2:10
 end
 \end{lstlisting}
 
-Primjer prolaska kroz vektor \texttt{for} petljom.
+Primjer prolaska kroz vektor \spec{for} petljom.
 
 \begin{lstlisting}
 for el = [5 2 36 1 9]
@@ -481,8 +483,8 @@ end
 \pagebreak
 
 Sljedećim blokom koda\footnote{Primjer služi kao ilustracija ugnježđivanja petlji.
-Ako bi željeli svaki element $A$ povećati za $10$, to bi učinili jednostavno sa \texttt{A = A + 10}.}
-inicijalizira se matrica $A$ dimenzija $3 \times 4$ kojoj se zatim petljom svaki element poveća za 10.
+Ako bi željeli svaki element $A$ povećati za $10$, to bi učinili jednostavno sa \spec{A = A + 10}.}
+inicijalizira se matrica \spec{A} dimenzija $3 \times 4$ kojoj se zatim petljom svaki element poveća za $10$.
 
 \begin{lstlisting}
 A = [1 2 3 4; 10 20 30 40; 100 200 300 400]
@@ -518,14 +520,14 @@ Generiraj cijeli broj u rasponu od 10 do 20 (granice uključne).
 randi([10, 20], 1)
 \end{lstlisting}
 
-Napravi matricu $A$ dimenzija $5 \times 5$ koja sadrži slučajne cijele brojeve u rasponu od $-100$ do $100$.
+Napravi matricu \spec{A} dimenzija $5 \times 5$ koja sadrži slučajne cijele brojeve u rasponu od $-100$ do $100$.
 
 \begin{lstlisting}
 A = randi([-100, 100], 5, 5)
 \end{lstlisting}
 
 Ako želimo da funkcije koje generiraju slučajne vrijednosti daju uvijek isti rezultat potrebno je postaviti konstantan \emph{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti.
-To činimo pomoću \texttt{rng}.
+To činimo pomoću \spec{rng}.
 
 \begin{lstlisting}
 rng(999)
@@ -549,7 +551,7 @@ Vrati duljinu stringa.
 length(s)
 \end{lstlisting}
 
-Provjeri ako je \texttt{s} string.
+Provjeri ako je \spec{s} string.
 
 \begin{lstlisting}
 isstr(s)
@@ -573,7 +575,7 @@ Konkatenacija stringova pomoću uglatih zagrada.
 tekst = [s, ' i na primjer broj ', num2str(125), '.']
 \end{lstlisting}
 
-Stringove možemo ispisivati sa \texttt{disp}.
+Stringove možemo ispisivati sa \spec{disp}.
 Istu funkciju možemo koristiti i na brojevima.
 
 \begin{lstlisting}
@@ -581,7 +583,7 @@ disp(tekst)
 disp(7)
 \end{lstlisting}
 
-Za ispise gdje se kombiniraju različiti formati (stringovi, cijeli i decimalni brojevi itd.) može se koristiti \texttt{fprintf}.
+Za ispise gdje se kombiniraju različiti formati (stringovi, cijeli i decimalni brojevi itd.) može se koristiti \spec{fprintf}.
 
 \begin{lstlisting}
 fprintf('Umjesto %f koristimo %d\n', 5.67, 5)
@@ -594,9 +596,9 @@ fprintf('String od prije glasi: %s\n', tekst)
 
 \section{Korisnički definirane funkcije}
 
-Korisnički definirane funkcije spremaju se u datoteke sa nastavkom \texttt{.m}.
+Korisnički definirane funkcije spremaju se u datoteke sa nastavkom \spec{.m}.
 
-Primjer funkcije koje ne vraća vrijednost.
+Slijedi primjer funkcije koje ne vraća vrijednost.
 
 \begin{lstlisting}
 function parnost(n)
@@ -609,7 +611,7 @@ end
 \end{lstlisting}
 
 Primjer kada funkcija vraća vrijednost.
-Konkretno, vrijednost koja se vraća je \texttt{b}.
+Konkretno, vrijednost koja se vraća je \spec{b}.
 
 \begin{lstlisting}
 function b = kvadriraj(a)
@@ -639,7 +641,7 @@ Prethodno navedenu funkciju bi pozivali na primjer ovako.
 \section{Korisnički unos}
 
 Korisnika se može tražiti unos na sljedeći način.
-U primjeru se unos sprema u \texttt{x}.
+U primjeru se unos sprema u \spec{x}.
 
 \begin{lstlisting}
 x = input('Unesite broj: ')
@@ -665,7 +667,7 @@ odg = input('Unesite ime: ', 's')
 \section{Grafovi}
 
 Ovako bi nacrtali funkciju sinus na intervalu od $-5$ do $5$.
-Ako imamo samo jedan graf \texttt{figure} nije obavezan.
+Ako imamo samo jedan graf \spec{figure} nije obavezan.
 Rezultat bi trebao izgledati kao slika \ref{fig:plot_sin_1} u sekciji \nameref{sec:prilozi}.
 
 \begin{lstlisting}
@@ -675,7 +677,7 @@ plot(x, sin(x))
 \end{lstlisting}
 
 Sljedeći kod pokazuje kako učiniti da se prozor sa grafom ne otvori.
-Dodatno, graf se spremi kao slika pod imenom \texttt{sinus\_graf.png}.
+Dodatno, graf se spremi kao slika pod imenom \spec{sinus\_graf.png}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -686,7 +688,7 @@ saveas(fig, 'sinus_graf', 'png')
 
 Na jednom grafu možemo imati više funkcija odjednom.
 To radimo tako da jednostavno navodimo argumente svake funkcije jedan za drugim.
-U donjem primjeru korišteni su i argumenti za stiliziranje linija (\texttt{g} i \texttt{b} su boje, a \texttt{-{}-} i \texttt{:} vrste linija).
+U donjem primjeru korišteni su i argumenti za stiliziranje linija (\spec{g} i \spec{b} su boje, a \spec{-{}-} i \spec{:} vrste linija).
 Rezultat slika \ref{fig:plot_sin_cos_1}.
 
 \begin{lstlisting}
@@ -695,7 +697,7 @@ figure
 plot(x, sin(x), 'g--', x, cos(x), 'b:')
 \end{lstlisting}
 
-Isti rezultat (slika \ref{fig:plot_sin_cos_1}) moguće je dobiti korištenjem naredbe \texttt{hold}.
+Isti rezultat (slika \ref{fig:plot_sin_cos_1}) moguće je dobiti korištenjem naredbe \spec{hold}.
 
 \begin{lstlisting}
 x = linspace(-5, 5, 101);
@@ -704,6 +706,8 @@ plot(x, sin(x), 'g--')
 hold on
 plot(x, cos(x), 'b:')
 \end{lstlisting}
+
+\pagebreak
 
 Slijedi primjer sa detaljnijim stiliziranjem linije i točaka grafa.
 Izlaz koda u slici \ref{fig:plot_stil}.
@@ -733,7 +737,7 @@ legend('sin(x)', 'cos(x)')
 \end{lstlisting}
 
 U sljedećem primjeru prikazan je stupčasti graf koji vizualizira neke \emph{random} podatke.
-Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \texttt{plot}.
+Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \spec{plot}.
 Izlaz slika \ref{fig:bar_1}.
 
 \begin{lstlisting}
@@ -757,8 +761,10 @@ set(gca, 'xticklabel', stupci)
 \end{lstlisting}
 
 Sljedeći blok koda daje primjer kako postaviti više (pod)grafova u jedan \emph{figure}.
-Korištena je naredba \texttt{subplot} koja dijeli \emph{figure} na koordinatni sustav\footnote{\texttt{subplot(m, n, p)} dijeli \emph{figure} u $m \times n$ koordinatni sustav u kojem smještamo pojedini graf na poziciju (ili više njih) \texttt{p}.} u kojemu smještamo grafove.
+Korištena je naredba \spec{subplot} koja dijeli \emph{figure} na koordinatni sustav\footnote{\spec{subplot(m, n, p)} dijeli \emph{figure} u \spec{m} $\times$ \spec{n} koordinatni sustav u kojem smještamo pojedini graf na poziciju (ili više njih) \spec{p}.} u kojemu smještamo grafove.
 Rezultat vidimo na slici \ref{fig:subplot}.
+
+\pagebreak
 
 \begin{lstlisting}
 % podaci
