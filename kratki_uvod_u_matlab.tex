@@ -58,13 +58,14 @@
     {Ž}{{\v{Z}}}1
 }
 
+\newcommand{\spec}[1]{\texttt{#1}} % varijable i kod izvan blokova koda
+\newcommand{\eng}[1]{\emph{#1}} % engleske riječi/fraze
+
 \begin{comment}
 \title{Kratki uvod u MATLAB}
 \author{Edvin Močibob}
 \date{\today}
 \end{comment}
-
-\newcommand{\spec}[1]{\texttt{#1}}
 
 \begin{document}
 
@@ -112,7 +113,7 @@
 \section*{Uvod}
 \addcontentsline{toc}{section}{Uvod}
 
-MATLAB (\emph{\textbf{mat}rix \textbf{lab}oratory}) označava programski jezik i interaktivno okruženje za vršenje programskih izračuna.
+MATLAB (\eng{\textbf{mat}rix \textbf{lab}oratory}) označava programski jezik i interaktivno okruženje za vršenje programskih izračuna.
 Popularan je alat u matematici, inženjerstvu i znanosti.
 Osim u akademskom okruženju ima široku primjenu i u industriji.
 Podržan je za više popularnih operacijskih sustava kao Microsoft Windows, GNU/Linux i Mac OS X.
@@ -174,7 +175,7 @@ v([9 9 9]) % tri puta vrati 9. element
 
 U sljedećem kodu potencira se broj i vektor.
 Primijetimo \spec{.} tj.\ operator točke.
-Ako je on ispred nekog drugog operatora, drugi operator će izvršiti izračun element po element (tzv.\ \emph{pointwise} operacija\footnote{Tako nam je, na primjer, bitno koristimo li \spec{.*} ili samo \spec{*} kod množenja matrica.
+Ako je on ispred nekog drugog operatora, drugi operator će izvršiti izračun element po element (tzv.\ \eng{pointwise} operacija\footnote{Tako nam je, na primjer, bitno koristimo li \spec{.*} ili samo \spec{*} kod množenja matrica.
 Primjeri u sekciji \nameref{sec:matrice}.}).
 
 \begin{lstlisting}
@@ -217,7 +218,7 @@ Pojedinačne varijable iz radnog prostora brišemo tako ih navodimo nakon \spec{
 \begin{lstlisting}
 clear a b
 \end{lstlisting}
-Slijedi primjer spremanja radne površine (\emph{workspace}) koristeći \spec{save}. Radna površina biti će spremljena u datoteci pod imenom \spec{vjezba1\_data.mat}.
+Slijedi primjer spremanja radne površine (\eng{workspace}) koristeći \spec{save}. Radna površina biti će spremljena u datoteci pod imenom \spec{vjezba1\_data.mat}.
 
 \begin{lstlisting}
 save('vjezba1_data')
@@ -231,7 +232,7 @@ Modulo operator\footnote{Ostatak cjelobrojnog dijeljenja.} implementiran je funk
 ostatak = mod(29, 3) % daje 2
 \end{lstlisting}
 
-Dolje je naveden primjer\footnote{Argument za obje funkcije, tj.\ rezultat \spec{v > 1}, je vektor sa \emph{true}/\emph{false} ($1$/$0$) vrijednostima za pojedine elemente \spec{v}.}
+Dolje je naveden primjer\footnote{Argument za obje funkcije, tj.\ rezultat \spec{v > 1}, je vektor sa \eng{true}/\eng{false} ($1$/$0$) vrijednostima za pojedine elemente \spec{v}.}
 za MATLAB funkcije \spec{any} (da li je ikoji element različit od $0$) i \spec{all} (da li su svi elementi različiti od $0$).
 
 \begin{lstlisting}
@@ -292,8 +293,8 @@ Najmanji elementi iz pojedinih redaka.
 min(A, [], 2) % min traži po 2. dimenziji - recima
 \end{lstlisting}
 
-Matrica tipa \emph{logical} koja prikazuje koji su elementi \spec{A} veći od $30$.
-Izlaz ima iste dimenzije kao \spec{A}, na mjesta elemenata većih od $30$ nalazi se $1$ (\emph{true}) a na ostalim $0$ (\emph{false}).
+Matrica tipa \eng{logical} koja prikazuje koji su elementi \spec{A} veći od $30$.
+Izlaz ima iste dimenzije kao \spec{A}, na mjesta elemenata većih od $30$ nalazi se $1$ (\eng{true}) a na ostalim $0$ (\eng{false}).
 
 \begin{lstlisting}
 A > 30
@@ -305,7 +306,7 @@ Broj elemenata \spec{A} većih od $30$.
 sum(sum(A > 30))
 \end{lstlisting}
 
-Vrati matricu \spec{P} (tipa \emph{logical}) koja sadrži na kojim mjestima u \spec{A} se nalaze parni brojevi.
+Vrati matricu \spec{P} (tipa \eng{logical}) koja sadrži na kojim mjestima u \spec{A} se nalaze parni brojevi.
 Nakon toga ispiši te parne brojeve iz {A}.
 
 \begin{lstlisting}
@@ -382,7 +383,7 @@ A(:)
 \section{Polja ćelija}
 
 Matrice ne mogu sadržavati istovremeno različite tipove podataka (npr.\ brojeve i tekst).
-Kada imamo potrebu za tim možemo koristiti polja ćelija (\emph{cell arrays}).
+Kada imamo potrebu za tim možemo koristiti polja ćelija (\eng{cell arrays}).
 
 Inicijaliziacija se može izvršiti pomoću vitičastih zagrada.
 Što se dimenzija tiče, svi reci moraju imati isti broj elemenata.
@@ -423,7 +424,7 @@ C2{5, 6} = []
 Naredba \spec{cell2mat} se koristi za pretvaranje polja ćelija (ili samo djela polja ćelija) u obični vektor tj.\ matricu.
 Uvjet je da svi elementi koji se pretvaraju budu istog tipa.
 
-Sljedeća naredba pretvara drugi redak polja ćelija \spec{C} u vektor\footnote{Isti efekt bi postigla naredba \spec{[C\{2, :\}]}.}.
+Sljedeća naredba pretvara drugi redak polja ćelija \spec{C} u vektor\footnote{Isti efekt postigla bi naredba \spec{[C\{2, :\}]}.}.
 
 \begin{lstlisting}
 cell2mat(C(2, :))
@@ -526,7 +527,7 @@ Napravi matricu \spec{A} dimenzija $5 \times 5$ koja sadrži slučajne cijele br
 A = randi([-100, 100], 5, 5)
 \end{lstlisting}
 
-Ako želimo da funkcije koje generiraju slučajne vrijednosti daju uvijek isti rezultat potrebno je postaviti konstantan \emph{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti.
+Ako želimo da funkcije koje generiraju slučajne vrijednosti daju uvijek isti rezultat potrebno je postaviti konstantan \eng{seed} (nenegativni cijeli broj) za generator slučajnih vrijednosti.
 To činimo pomoću \spec{rng}.
 
 \begin{lstlisting}
@@ -736,7 +737,7 @@ ylabel('Vrijednost funkcije')
 legend('sin(x)', 'cos(x)')
 \end{lstlisting}
 
-U sljedećem primjeru prikazan je stupčasti graf koji vizualizira neke \emph{random} podatke.
+U sljedećem primjeru prikazan je stupčasti graf koji vizualizira neke \eng{random} podatke.
 Naslov grafa, oznake osi itd.\ bi se po potrebi postavile kao za \spec{plot}.
 Izlaz slika \ref{fig:bar_1}.
 
@@ -760,8 +761,8 @@ bar(podaci)
 set(gca, 'xticklabel', stupci)
 \end{lstlisting}
 
-Sljedeći blok koda daje primjer kako postaviti više (pod)grafova u jedan \emph{figure}.
-Korištena je naredba \spec{subplot} koja dijeli \emph{figure} na koordinatni sustav\footnote{\spec{subplot(m, n, p)} dijeli \emph{figure} u \spec{m} $\times$ \spec{n} koordinatni sustav u kojem smještamo pojedini graf na poziciju (ili više njih) \spec{p}.} u kojemu smještamo grafove.
+Sljedeći blok koda daje primjer kako postaviti više (pod)grafova u jedan \eng{figure}.
+Korištena je naredba \spec{subplot} koja dijeli \eng{figure} na koordinatni sustav\footnote{\spec{subplot(m, n, p)} dijeli \eng{figure} u \spec{m} $\times$ \spec{n} koordinatni sustav u kojem smještamo pojedini graf na poziciju (ili više njih) \spec{p}.} u kojemu smještamo grafove.
 Rezultat vidimo na slici \ref{fig:subplot}.
 
 \pagebreak
