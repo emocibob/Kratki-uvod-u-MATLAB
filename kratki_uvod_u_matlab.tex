@@ -156,20 +156,19 @@ linspace(1, 10, 4) % rezultat sadrži 1, 4, 7 i 10
 \end{lstlisting}
 
 Isti rezultat dobijemo sljedećom naredom.
-Ovdje ne odredimo eksplicitno broj elementa nego inkrement\footnote{Ako je inkrement $1$ možemo izostaviti drugi argument, tj.\ pišemo \spec{[a:b]} za sve cijele brojeve od \spec{a} do \spec{b}.} za svaki sljedeći element -- u ovom slučaju $3$.
+Ovdje ne odredimo eksplicitno broj elementa nego inkrement\footnote{Ako je inkrement $1$ možemo izostaviti drugi argument, tj.\ pišemo \spec{[a:b]} umjesto \spec{[a:1:b]}.} za svaki sljedeći element -- u ovom slučaju $3$.
 
 \begin{lstlisting}
 [1:3:10]
 \end{lstlisting}
 
-Slijedi primjer indeksiranja vektora i matrica (više u sekciji \nameref{sec:matrice}).
+Slijede primjeri dohvaćanja vrijednosti iz vektora korištenjem indeksa.
 Valja zapamtiti da indeksi elementa počinju od $1$.
 
 \begin{lstlisting}
-v = [100:150]; % cijeli brojevi od 100 do 150
 v(1) % prvi element
 v(1:10) % prvih 10 elemenata
-v(2:2:50) % neparni elementi
+v(1:2:50) % svaki drugi element, od prvog do pedesetog
 v([9 9 9]) % tri puta vrati 9. element
 \end{lstlisting}
 
@@ -198,6 +197,8 @@ Duže naredbe je zbog preglednosti moguće napisati u više linija sa tri točke
 n = 1 - 1/12 + 1/123 - 1/1234 + 1/12345 - 1/123456 ...
     + 1/1234567 - 1/12345678 + 1/123456789
 \end{lstlisting}
+
+\pagebreak
 
 Naredba \spec{lookfor} služi za pretraživanje funkcija iz komandne linije.
 Pretraživanje može potrajati pošto MATLAB ima bogatu biblioteku funkcija.
