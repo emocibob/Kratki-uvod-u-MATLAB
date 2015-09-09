@@ -5,3 +5,6 @@ Repozitorij sadrži PDF ([download](https://github.com/emocibob/Kratki-uvod-u-MA
 Autor: Edvin Močibob
 
 Licenca: MIT
+
+TODO
+- dodati učitvanje i korištenje multimedije (slike/audio/video)?
