@@ -7,4 +7,4 @@ Autor: Edvin Močibob
 Licenca: MIT
 
 ## TODO
-- dodati učitvanje i korištenje multimedije (slike/audio/video)?
+- dodati učitavanje i korištenje multimedije (slike/audio/video)?
