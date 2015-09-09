@@ -6,5 +6,5 @@ Autor: Edvin Močibob
 
 Licenca: MIT
 
-TODO
+## TODO
 - dodati učitvanje i korištenje multimedije (slike/audio/video)?
